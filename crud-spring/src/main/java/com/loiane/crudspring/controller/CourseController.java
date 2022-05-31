@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
-@RestController     // Anotação que indica que a classe é uma API com endpoints;
+@RestController                     // Anotação que indica que a classe é uma API com endpoints;
 @RequestMapping("/api/courses")     // Anotação que indica os endpoint;
 @AllArgsConstructor
 public class CourseController {
