@@ -1,12 +1,17 @@
 package com.loiane.crudspring;
 
+import com.loiane.crudspring.model.Course;
+import com.loiane.crudspring.repository.CourseRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.loiane.crudspring.model.Course;
-import com.loiane.crudspring.repository.CourseRepository;
+// http://localhost:8080/h2-console/ => H2
+// http://localhost:8080/api/courses => Json
+
+// http://localhost:4200/courses => Aplicação Front-end Angular
 
 @SpringBootApplication
 public class CrudSpringApplication {
@@ -15,7 +20,7 @@ public class CrudSpringApplication {
 		SpringApplication.run(CrudSpringApplication.class, args);
 	}
 
-	@Bean	// Gerencia todo ciclo de vida
+	@Bean
 	CommandLineRunner initDatabase(CourseRepository courseRepository) {
 		return args -> {
 			courseRepository.deleteAll();
@@ -25,9 +30,8 @@ public class CrudSpringApplication {
 			c.setCategory("Front-end");
 
 			courseRepository.save(c);
-
-			courseRepository.save(new Course());
 		};
+
 	}
 
 }
